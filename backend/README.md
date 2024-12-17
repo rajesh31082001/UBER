@@ -141,3 +141,59 @@
   "message": "Invalid Email or Password"
 }
 ```
+
+### GET /users/profile
+
+Retrieves the profile of the authenticated user.
+
+- **URL**: `/users/profile`
+- **Method**: `GET`
+- **Headers**:
+  - `Authorization`: `Bearer <token>`
+- **Success Response**:
+  - **Status**: `200 OK`
+  - **Body**:
+    ```json
+    {
+      "id": "user_id",
+      "email": "user@example.com",
+      "fullname": {
+        "firstname": "First",
+        "lastname": "Last"
+      }
+      // ...other user fields...
+    }
+    ```
+- **Error Response**:
+  - **Status**: `401 Unauthorized`
+  - **Body**:
+    ```json
+    {
+      "error": "Authentication required."
+    }
+    ```
+
+### GET /users/logout
+
+Logs out the authenticated user.
+
+- **URL**: `/users/logout`
+- **Method**: `GET`
+- **Headers**:
+  - `Authorization`: `Bearer <token>`
+- **Success Response**:
+  - **Status**: `200 OK`
+  - **Body**:
+    ```json
+    {
+      "message": "User logged out successfully."
+    }
+    ```
+- **Error Response**:
+  - **Status**: `401 Unauthorized`
+  - **Body**:
+    ```json
+    {
+      "error": "Authentication required."
+    }
+    ```
